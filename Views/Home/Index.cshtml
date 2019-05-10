@@ -1,0 +1,13 @@
+﻿<h2>Counter Game</h2>
+<h4>Welcome, @ViewBag.User</h4>
+<form action="/newUser" method="post">
+    <input type="text" name="username" placeholder="Enter a Name">
+    <button type="submit">Submit</button>
+</form>
+<hr>
+<h4>The count is: @ViewBag.Count</h4>
+<a href="/count">
+    <button>
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </button>
+</a>

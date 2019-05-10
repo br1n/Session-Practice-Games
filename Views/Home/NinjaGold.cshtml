@@ -1,0 +1,44 @@
+<h2>Ninja Gold</h2>
+<p>Total Golds:</p><input type="text" value="@ViewBag.Gold" disabled>
+<p>@TempData["message"]</p>
+<hr>
+@{
+    Building[] buildings = 
+    { 
+        new Building()
+        {
+            Name = "House",
+            MinGold = 2,
+            MaxGold = 5
+        },
+        new Building()
+        {
+            Name = "Cave",
+            MinGold = 4,
+            MaxGold = 8
+        },
+        new Building()
+        {
+            Name = "Farm",
+            MinGold = 5,
+            MaxGold = 10
+        },
+        new Building()
+        {
+            Name = "Casino",
+            MinGold = -20,
+            MaxGold = 50
+        }
+     };
+}
+@foreach (var building in buildings)
+{
+    <h2>@building.Name</h2>
+    <p>Get (@building.MinGold - @building.MaxGold) Golds</p>
+    <form action="/getGold" method="post">
+        <input type="hidden" name="Name" value="@building.Name">
+        <input type="hidden" name="MinGold" value="@building.MinGold">
+        <input type="hidden" name="MaxGold" value="@building.MaxGold">
+        <input type="submit" value="Get Gold">
+    </form>
+}
